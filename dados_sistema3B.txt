@@ -1,0 +1,44 @@
+DBAR
+x---x x-----x x-----x x-----x x---x x------x x------x x-------x x-------x x-------x x-------x
+BARRA  PD(PU)  QD(PU) Bsh(PU)  TIPO  Vesp(PU) Oesp(°) PGesp(PU) Cus($/MW) CGmin(PU) CGmax(PU)
+   01    0.00    0.00    0.00    SW     1.00     0.00      1.50     25.00      0.00      1.50
+   02    1.00    0.00    0.00    PV     1.00     0.00      1.00     15.00      0.00      1.00
+   03    1.00    0.00    0.00    PQ     1.00     0.00      0.00     00.00      0.00      0.00
+####
+
+DCIR
+x---x x---x x---x x------x x------x x-------x x------x x--------x x-----------x  x------x
+BDE   BPARA  NCIR  RES(PU) REAT(PU) SUCsh(PU)  TAP(PU) DEF(GRAUS) LIG(L)DESL(D)   CAP(PU)
+   01    02    01   0.0200   0.1000      0.00     1.00     00.000             L    0.4000
+   01    03    02   0.0300   0.1000      0.00     1.00     00.000             L    0.8000
+   02    03    03   0.0200   0.1000      0.00     1.00     00.000             L    0.4000
+####
+
+OBS.:
+01 - Na existência de mais de um circuito entre duas barras, cada um deve ser inserido em DCIR separadamente.
+02 - A suceptância shunt da barra (Bsh) deve ser inserida como: + (positiva) para C e -(negativa) para L.
+03 - A suceptância shunt do circuito (SUCsh) de DCIR é a total do circuito.
+
+RESULTADOS PARA REFERÊNCIA
+
+RELATÓRIO DE BARRA: 
+ ---------------------------------------------------------------------------------------------- 
+  Barra   V       Ang.       Pi           Qi         PG          QG           PD         QD
+         (pu)   (graus)     (MW)        (MVAr)      (MW)       (MVAr)        (MW)      (MVAr)    
+ ---------------------------------------------------------------------------------------------- 
+    1   1.0000    0.00    120.0000      5.3129    120.0000      5.3129      0.0000      0.0000
+    2   1.0000   -2.68   - 20.0000      2.9763     80.0000      2.9763    100.0000      0.0000
+    3   0.9985   -4.21   -100.0000      0.0000      0.0000      0.0000    100.0000      0.0000
+ 
+ RELATÓRIO DE CIRCUITOS: 
+ ------------------------------------------------------------------------------------------------- 
+    Circ.       Pij         Qij         Circ.       Pji         Qji      Perda At.  Perdas Reat.
+   de  para     (MW)       (MVAr)      de  para     (MW)       (MVAr)      (MW)        (MVAr)  
+ ------------------------------------------------------------------------------------------------- 
+   1     2     46.7057      1.0913     1     2   - 46.7057      1.0913    0.0000       2.1826
+   1     3     73.2943      4.2216     1     3   - 73.2943      1.1683    0.0000       5.3899
+   2     3     26.7057      1.8850     2     3   - 26.7057   -  1.1683    0.0000       0.7167
+ ------------------------------------------------------------------------------------------------- 
+ PERDAS TOTAIS: 
+ Perdas ativas: -------- 0.0000 (MW) 
+ Perdas reativas: ------ 8.2892 (MVAr) 
